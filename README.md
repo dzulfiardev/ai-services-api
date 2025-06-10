@@ -14,7 +14,7 @@ A Flask-based REST API service for detecting NSFW (Not Safe For Work) content in
 ## Project Structure
 
 ```
-dzul-ai-project/
+api-services-api/
 ├── app.py                          # Main Flask application
 ├── services/
 │   ├── __init__.py
