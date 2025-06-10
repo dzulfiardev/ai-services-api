@@ -107,9 +107,9 @@ if __name__ == "__main__":
     test_nsfw_info()
     
     # Test NSFW detection endpoints
-    test_nsfw_detect("./image_sample/imagetest-5.png")
-    test_nsfw_detect_base64("./image_sample/imagetest-5.png")
-    test_nsfw_batch_detect(["./image_sample/imagetest-5.png"])
+    test_nsfw_detect("../image_sample/imagetest-5.png")
+    test_nsfw_detect_base64("../image_sample/imagetest-5.png")
+    test_nsfw_batch_detect(["../image_sample/imagetest-5.png"])
     
     # Test legacy endpoints
     test_legacy_endpoints()

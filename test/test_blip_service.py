@@ -5,7 +5,8 @@ Test script for BLIP-based Image to Text Service
 
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# Add parent directory to path to import services
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from services.image_to_text_service import ImageToTextService
 from PIL import Image
@@ -32,7 +33,7 @@ def test_blip_service():
         print(f"   Using Fallback: {info.get('using_pipeline_fallback', False)}")
         
         # Test with sample image
-        image_path = "./image_sample/imagetest-5.png"
+        image_path = "../image_sample/imagetest-5.png"
         if os.path.exists(image_path):
             print(f"\n🖼️  Testing with image: {image_path}")
             result = service.extract_text_from_image(image_path, max_length=100)
@@ -84,7 +85,7 @@ def test_api_endpoints():
         print(f"❌ Error getting model info: {e}")
     
     # Test OCR endpoint
-    image_path = "./image_sample/imagetest-5.png"
+    image_path = "../image_sample/imagetest-5.png"
     if os.path.exists(image_path):
         try:
             with open(image_path, 'rb') as f:

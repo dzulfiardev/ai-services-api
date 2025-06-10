@@ -30,10 +30,12 @@ api-services-api/
 │   ├── nsfw_detection_service.py   # NSFW detection service
 │   ├── image_to_text_service.py    # Image to text (OCR) service
 │   └── id_card_service.py          # ID card detection & extraction service
-├── test_api.py                     # Legacy API test client
-├── test_nsfw_api.py                # NSFW API test client
-├── test_ocr_api.py                 # OCR API test client
-├── test_id_card_api.py             # ID card API test client
+├── test/
+│   ├── test_api.py                 # Legacy API test client
+│   ├── test_nsfw_api.py            # NSFW API test client
+│   ├── test_ocr_api.py             # OCR API test client
+│   ├── test_id_card_api.py         # ID card API test client
+│   └── test_blip_service.py        # BLIP service test client
 ├── requirements.txt                # Python dependencies
 ├── uploads/                        # Temporary upload directory
 ├── image_sample/
@@ -591,17 +593,22 @@ Run the test clients to verify all endpoints:
 
 **Test NSFW Detection:**
 ```bash
-python test_api.py
+python test/test_nsfw_api.py
 ```
 
 **Test Text Extraction (OCR):**
 ```bash
-python test_ocr_api.py
+python test/test_ocr_api.py
 ```
 
 **Test ID Card Processing:**
 ```bash
-python test_id_card_api.py
+python test/test_id_card_api.py
+```
+
+**Test BLIP Service:**
+```bash
+python test/test_blip_service.py
 ```
 
 **Run Interactive Demo:**
@@ -685,7 +692,7 @@ The ID card service can extract the following fields from Indonesian KTP:
 
 1. Add service logic to `services/` directory (e.g., `new_service.py`)
 2. Add API endpoints to `app.py`
-3. Update tests in `test_api.py` or create new test files
+3. Update tests in `test/test_api.py` or create new test files
 4. Update this README
 
 ### Environment Variables

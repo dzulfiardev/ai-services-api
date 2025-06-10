@@ -230,7 +230,7 @@ class IDCardService:
             if any(keyword in text.lower() for keyword in ["nama", "name"]) and len(text) > 10:
                 id_data["name"] = text.replace("Nama", "").replace("Name", "").strip()
             
-            # Date patterns (DD-MM-YYYY or DD/MM/YYYY)
+            # Date patterns (DD-MM-YYYY or DD/MM/YYYY or DD MM YYYY)
             date_pattern = r'\b\d{1,2}[-/]\d{1,2}[-/]\d{4}\b'
             if re.search(date_pattern, text) and not id_data["date_of_birth"]:
                 id_data["date_of_birth"] = text
@@ -240,7 +240,7 @@ class IDCardService:
                 id_data["gender"] = text
             
             # Address detection (usually longer text with location indicators)
-            if any(addr_keyword in text.lower() for addr_keyword in ["jl", "jalan", "rt", "rw", "kel", "kec"]):
+            if any(addr_keyword in text.lower() for addr_keyword in ["jl", "jalan", "rt", "rw", "kel", "kec", "JL"]):
                 if not id_data["address"]:
                     id_data["address"] = text
                 else:
